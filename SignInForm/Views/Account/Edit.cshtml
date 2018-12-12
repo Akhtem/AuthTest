@@ -1,0 +1,25 @@
+﻿@model SignInForm.Models.EditModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Редактировать данные профиля</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div>
+    @Html.ValidationSummary(false)
+    <div>
+        <p>Year: @Html.EditorFor(model => model.Year)</p>
+    </div>
+
+    <div>
+        <div>
+            <input type="submit" value="Сохранить" />
+        </div>
+    </div>
+</div>
+}
+
