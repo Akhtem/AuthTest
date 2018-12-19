@@ -88,7 +88,16 @@ namespace SignInForm.Controllers
         {
             if (ModelState.IsValid)
             {
-                ApplicationUser user = new ApplicationUser { UserName = model.Email, Email = model.Email, Year = model.Year };
+                ApplicationUser user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Year = model.Year,
+                    Name = model.Name,
+                    SurName = model.SurName,
+                    Password = model.Password,
+                    Country = model.Country
+                };
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -141,7 +150,14 @@ namespace SignInForm.Controllers
             ApplicationUser user = await UserManager.FindByEmailAsync(User.Identity.Name);
             if (user != null)
             {
-                EditModel model = new EditModel { Year = user.Year /*, Password=user.Password*/ };
+                EditModel model = new EditModel
+                {
+                    Year = user.Year,
+                    Name = user.Name,
+                    SurName = user.SurName,
+                    Password = user.Password,
+                    Country = user.Country
+                };
 
                 return View(model);
             }
@@ -158,7 +174,11 @@ namespace SignInForm.Controllers
                 if (user != null)
                 {
                     user.Year = model.Year;
-                    /* user.Password = model.Password;*/
+                    user.Name = model.Name;
+                    user.SurName = model.SurName;
+                    user.Password = model.Password;
+                    user.Country = model.Country;
+
                     IdentityResult result = await UserManager.UpdateAsync(user);
                     if (result.Succeeded)
                     {

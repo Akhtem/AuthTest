@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.SaveEditInfoClass{
+    padding:15px;
+}
+.registerInfoClass{
+    padding:15px;
+}

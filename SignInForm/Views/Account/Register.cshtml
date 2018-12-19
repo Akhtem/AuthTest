@@ -13,19 +13,12 @@
 <div>
     <h4>Регистрация пользователя</h4>
     <hr />
-    @Html.ValidationSummary(false)
+    @Html.ValidationSummary(false, "", new { @style = "color:red" })
 
     <div>
         Электронный адрес
         <div>
             @Html.EditorFor(model => model.Email)
-        </div>
-    </div>
-
-    <div>
-        Год рождения
-        <div>
-            @Html.EditorFor(model => model.Year)
         </div>
     </div>
 
@@ -44,6 +37,75 @@
     </div>
 
     <div>
+        Имя
+        <div>
+            @Html.EditorFor(model => model.Name)
+        </div>
+    </div>
+
+    <div>
+        Фамилия
+        <div>
+            @Html.EditorFor(model => model.SurName)
+        </div>
+    </div>
+
+    @{
+        List<SelectListItem> listItems = new List<SelectListItem>();
+        listItems.Add(new SelectListItem
+        {
+            Text = "Australia",
+            Value = "Australia"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Austria",
+            Value = "Austria",
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Azerbaijan",
+            Value = "Azerbaijan"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Austria",
+            Value = "Austria",
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Canada",
+            Value = "Canada",
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "USA",
+            Value = "USA",
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Ukraine",
+            Value = "Ukraine",
+            Selected = true
+        });
+    }
+
+    <div>
+        Страна
+        <div>
+            @Html.DropDownListFor(model => model.Country, listItems, "-- Select Country --")
+        </div>
+    </div>
+
+    <div>
+        Год рождения
+        <div>
+            @Html.EditorFor(model => model.Year)
+        </div>
+    </div>
+
+    <div class="registerInfoClass">
+
         <div>
             <input type="submit" value="Зарегистрировать" />
         </div>

@@ -10,12 +10,80 @@
     @Html.AntiForgeryToken()
 
 <div>
-    @Html.ValidationSummary(false)
+
+    @Html.ValidationSummary(false,"", new { @style = "color:red" })
     <div>
-        <p>Year: @Html.EditorFor(model => model.Year)</p>
+        Новый пароль
+        <div> @Html.EditorFor(model => model.Password)</div>
     </div>
 
     <div>
+        Подтвердить пароль
+        <div> @Html.EditorFor(model => model.PasswordConfirm)</div>
+    </div>
+
+
+    <div>
+        Имя
+        <div> @Html.EditorFor(model => model.Name)</div>
+    </div>
+
+    <div>
+        Фамилия
+        <div> @Html.EditorFor(model => model.SurName)</div>
+    </div>
+
+    <div>
+        Год Рождения
+        <div> @Html.EditorFor(model => model.Year)</div>
+    </div>
+
+
+    @{
+        List<SelectListItem> listItems = new List<SelectListItem>();
+        listItems.Add(new SelectListItem
+        {
+            Text = "Australia",
+            Value = "Australia"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Austria",
+            Value = "Austria",
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Azerbaijan",
+            Value = "Azerbaijan"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Austria",
+            Value = "Austria",
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Canada",
+            Value = "Canada",
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "USA",
+            Value = "USA",
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Ukraine",
+            Value = "Ukraine",
+            Selected = true
+        });
+    }
+    <div>
+        Страна
+        <div> @Html.DropDownListFor(model => model.Country, listItems, "-- Select Country --")</div>
+    </div>
+
+    <div class="SaveEditInfoClass">
         <div>
             <input type="submit" value="Сохранить" />
         </div>

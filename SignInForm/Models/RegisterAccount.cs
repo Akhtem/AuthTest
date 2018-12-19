@@ -23,6 +23,16 @@ namespace SignInForm.Models
         [DataType(DataType.Password)]
         public string PasswordConfirm { get; set; }
 
+        [Required(ErrorMessage = "Поле должно быть установлено")]
+        [StringLength(15, MinimumLength = 2, ErrorMessage = "Некорректное имя")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Поле должно быть установлено")]
+        [StringLength(15, MinimumLength = 2, ErrorMessage = "Некорректная фамилия")]    
+        public string SurName { get; set; }
+
+        public string Country { get; set; }
+
 
     }
 }
