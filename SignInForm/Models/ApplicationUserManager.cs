@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Threading.Tasks;
 using Microsoft.Owin;
 
 namespace SignInForm.Models
@@ -21,5 +22,7 @@ namespace SignInForm.Models
             ApplicationUserManager manager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
             return manager;
         }
+
+    
     }
 }

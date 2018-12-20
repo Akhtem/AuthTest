@@ -11,31 +11,49 @@
 
 <div>
 
-    @Html.ValidationSummary(false,"", new { @style = "color:red" })
+    @Html.ValidationSummary(false, "", new { @style = "color:red" })
+
+
+    @*<script>
+        function enableDisable(checkbox) {
+            if (checkbox.checked == true) {
+                $("#newPassw").removeAttr('readonly');
+                $("#confnewPassw").removeAttr('readonly');
+            }
+            else if (checkbox.checkbox == false){
+                $("#newPassw").setAttr('readonly');
+                $("#confnewPassw").setAttr('readonly');
+            }
+        }
+    </script>
     <div>
         Новый пароль
-        <div> @Html.EditorFor(model => model.Password)</div>
+        <div> @Html.TextBoxFor(model => model.Password, new {id="newPassw" , @readonly = "readonly", @class = "form-control" })</div>
+        <p>
+            <input type="checkbox" onclick="enableDisable(this)">
+            Изменить пароль
+        </p>
     </div>
 
     <div>
         Подтвердить пароль
-        <div> @Html.EditorFor(model => model.PasswordConfirm)</div>
-    </div>
+        <div > @Html.TextBoxFor(model => model.PasswordConfirm, new { id="confnewPassw" , @readonly = "readonly", @class = "form-control" })</div>
+    </div>*@
 
 
     <div>
         Имя
-        <div> @Html.EditorFor(model => model.Name)</div>
+        <div> @Html.EditorFor(model => model.Name , new { @class = "form-control" })</div>
     </div>
 
     <div>
         Фамилия
-        <div> @Html.EditorFor(model => model.SurName)</div>
+        <div> @Html.EditorFor(model => model.SurName, new { @class = "form-control" })</div>
     </div>
 
     <div>
         Год Рождения
-        <div> @Html.EditorFor(model => model.Year)</div>
+        <div> @Html.EditorFor(model => model.Year, new { @class = "form-control" })</div>
     </div>
 
 
@@ -80,7 +98,7 @@
     }
     <div>
         Страна
-        <div> @Html.DropDownListFor(model => model.Country, listItems, "-- Select Country --")</div>
+        <div> @Html.DropDownListFor(model => model.Country, listItems, "-- Select Country --", new { @class = "form-control" })</div>
     </div>
 
     <div class="SaveEditInfoClass">

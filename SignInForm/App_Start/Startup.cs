@@ -23,3 +23,8 @@ namespace SignInForm.App_Start
         }
     }
 }
+
+/*<connectionStrings>
+  <add name="Accounts" providerName="System.Data.SqlClient" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Accounts.mdf;Integrated Security=True;" />
+</connectionStrings>
+*/
